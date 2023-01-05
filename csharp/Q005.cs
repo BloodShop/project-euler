@@ -19,7 +19,7 @@ namespace csharp
             ArrayList myValues = new ArrayList();
             long num;
             int[] arr = new int[100];
-            int numOfIterations = 0, k = 0;
+            int k = 0;
             for (int i = strNumber; i <= fnshNumber; i++) // 1 - 20
             {
                 if (isPrime(i))
@@ -44,9 +44,6 @@ namespace csharp
                                 k++;
                             }
                 }
-
-                numOfIterations = k;
-
             }
             // prints the array
             foreach (int op in arr)
