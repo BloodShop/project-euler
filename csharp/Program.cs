@@ -1,8 +1,21 @@
 ﻿using csharp;
+using System.Reflection;
 
-var type = typeof(IEulerProblem);
-var types = AppDomain.CurrentDomain.GetAssemblies()
-    .SelectMany(s => s.GetTypes())
-    .Where(type.IsAssignableFrom);
+void SolverClasses(params Assembly[] assemblies)
+{
+    IEnumerable<IEulerProblem> questionSolvers = assemblies
+        .SelectMany(a => a.DefinedTypes)
+        .Where(IsAssignableToType<IEulerProblem>)
+        .Select(Activator.CreateInstance)
+        .Cast<IEulerProblem>();
 
-Console.WriteLine(types);
+    foreach (var questionSolver in questionSolvers)
+        Console.WriteLine($"{questionSolver.GetType().Name} - {questionSolver.Solve()}");
+
+    static bool IsAssignableToType<T>(TypeInfo typeInfo) =>
+        typeof(T).IsAssignableFrom(typeInfo) &&
+        !typeInfo.IsInterface &&
+        !typeInfo.IsAbstract;
+}
+
+SolverClasses(typeof(IEulerProblem).Assembly);
