@@ -19,7 +19,7 @@
             return sum.ToString();
         }
 
-        private static String ToEnglish(int n)
+        private static string ToEnglish(int n)
         {
             if (0 <= n && n < 20)
                 return ONES[n];
@@ -33,11 +33,12 @@
                 throw new Exception();
         }
 
-        private static String[] ONES = {
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-        "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+        private static string[] ONES = 
+        {
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+        };
 
-        private static String[] TENS = {
-        "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+        private static string[] TENS = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     }
 }
