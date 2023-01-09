@@ -10,7 +10,7 @@ namespace csharp
     /// 
     /// Find the sum of the digits in the number 100!
     /// </summary>
-    public class Q019 : IEulerProblem
+    public class Q020 : IEulerProblem
     {
         public string Solve()
         {
