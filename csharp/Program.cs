@@ -10,7 +10,8 @@ void SolverClasses(params Assembly[] assemblies)
         .Cast<IEulerProblem>();
 
     foreach (var questionSolver in questionSolvers)
-        Console.WriteLine($"{questionSolver.GetType().Name} - {questionSolver.Solve()}");
+        Task.Run(() => Console.WriteLine($"{questionSolver.GetType().Name} - {questionSolver.Solve()}"));
+        /*Console.WriteLine($"{questionSolver.GetType().Name} - {questionSolver.Solve()}");*/
 
     static bool IsAssignableToType<T>(TypeInfo typeInfo) =>
         typeof(T).IsAssignableFrom(typeInfo) &&
@@ -19,3 +20,4 @@ void SolverClasses(params Assembly[] assemblies)
 }
 
 SolverClasses(typeof(IEulerProblem).Assembly);
+Console.ReadLine();

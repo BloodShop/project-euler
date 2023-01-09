@@ -46,10 +46,10 @@ namespace csharp
                 }
             }
             // prints the array
-            foreach (int op in arr)
+            /*foreach (int op in arr)
                 if (op != 0)
                     Console.Write(op + "\t");
-            Console.WriteLine("\n");
+            Console.WriteLine("\n");*/
 
             // sums all the numbers needed
             num = 1;

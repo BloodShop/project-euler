@@ -71,9 +71,10 @@ namespace csharp
                     else
                         i += k;
             }
-            foreach (int i in maxArr)
+            /* Prints the max array */
+            /*foreach (int i in maxArr)
                 Console.Write(i);
-            Console.WriteLine();
+            Console.WriteLine();*/
 
             return max.ToString();
         }
