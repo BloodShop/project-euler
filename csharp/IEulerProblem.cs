@@ -2,6 +2,7 @@
 {
     public interface IEulerProblem
     {
-        public string Solve();
+        string Solve();
+            
     }
 }
