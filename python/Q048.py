@@ -1,5 +1,9 @@
-sum = 0
+# 1
+num = 0
 for x in range(1, 1000):
-    sum += (x ** x)
-sum = str(sum)
-print(sum[-10:])
+    num += (x ** x)
+num = str(num)
+print(num[-10:])
+
+# 2
+print(str(sum([i**i for i in range(1,1001)]))[-10:])
