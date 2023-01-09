@@ -25,6 +25,5 @@ namespace csharp
             
             return total.ToString();
         }
-        
     }
 }
