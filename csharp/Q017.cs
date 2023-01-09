@@ -15,30 +15,29 @@
         {
             int sum = 0;
             for (int i = 1; i <= 1000; i++)
-                sum += ConvertNumberToEnglishUK(i).Length;
+                sum += i.ConvertNumberToEnglishUK().Length;
             return sum.ToString();
         }
 
-        private static string ConvertNumberToEnglishUK(int n)
+        public static string[] ONENESS = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+
+        public static string[] TENS = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+    }
+
+    public static class IntEditor
+    {
+        public static string ConvertNumberToEnglishUK(this int i)
         {
-            if (0 <= n && n < 20)
-                return ONES[n];
-            else if (20 <= n && n < 100)
-                return TENS[n / 10] + (n % 10 != 0 ? ONES[n % 10] : "");
-            else if (100 <= n && n < 1000)
-                return ONES[n / 100] + "hundred" + (n % 100 != 0 ? "and" + ConvertNumberToEnglishUK(n % 100) : "");
-            else if (1000 <= n && n < 1000000)
-                return ConvertNumberToEnglishUK(n / 1000) + "thousand" + (n % 1000 != 0 ? ConvertNumberToEnglishUK(n % 1000) : "");
+            if (0 <= i && i < 20)
+                return Q017.ONENESS[i];
+            else if (20 <= i && i < 100)
+                return Q017.TENS[i / 10] + (i % 10 != 0 ? Q017.ONENESS[i % 10] : "");
+            else if (100 <= i && i < 1000)
+                return Q017.ONENESS[i / 100] + "hundred" + (i % 100 != 0 ? "and" + ConvertNumberToEnglishUK(i % 100) : "");
+            else if (1000 <= i && i < 1000000)
+                return ConvertNumberToEnglishUK(i / 1000) + "thousand" + (i % 1000 != 0 ? ConvertNumberToEnglishUK(i % 1000) : "");
             else
                 throw new Exception();
         }
-
-        private static string[] ONES = 
-        {
-            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
-        };
-
-        private static string[] TENS = { "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     }
 }
