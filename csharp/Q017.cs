@@ -15,20 +15,20 @@
         {
             int sum = 0;
             for (int i = 1; i <= 1000; i++)
-                sum += ToEnglish(i).Length;
+                sum += ConvertNumberToEnglishUK(i).Length;
             return sum.ToString();
         }
 
-        private static string ToEnglish(int n)
+        private static string ConvertNumberToEnglishUK(int n)
         {
             if (0 <= n && n < 20)
                 return ONES[n];
             else if (20 <= n && n < 100)
                 return TENS[n / 10] + (n % 10 != 0 ? ONES[n % 10] : "");
             else if (100 <= n && n < 1000)
-                return ONES[n / 100] + "hundred" + (n % 100 != 0 ? "and" + ToEnglish(n % 100) : "");
+                return ONES[n / 100] + "hundred" + (n % 100 != 0 ? "and" + ConvertNumberToEnglishUK(n % 100) : "");
             else if (1000 <= n && n < 1000000)
-                return ToEnglish(n / 1000) + "thousand" + (n % 1000 != 0 ? ToEnglish(n % 1000) : "");
+                return ConvertNumberToEnglishUK(n / 1000) + "thousand" + (n % 1000 != 0 ? ConvertNumberToEnglishUK(n % 1000) : "");
             else
                 throw new Exception();
         }
@@ -39,6 +39,6 @@
             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
         };
 
-        private static string[] TENS = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+        private static string[] TENS = { "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     }
 }
