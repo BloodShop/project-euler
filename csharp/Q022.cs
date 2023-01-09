@@ -1,12 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Net.NetworkInformation;
-using System;
-using System.Numerics;
-using static System.Formats.Asn1.AsnWriter;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-namespace csharp
+﻿namespace csharp
 {
     /// <summary>
     /// Using names.txt(right click and 'Save Link/Target As...'), a 46K text file containing over five-thousand first names,
@@ -35,7 +27,7 @@ namespace csharp
                     int sum = 0;
                     foreach (var c in s)
                         sum += alpha.IndexOf(c) + 1;
-                    
+
                     total += sum * counter;
                     counter++;
                 }
