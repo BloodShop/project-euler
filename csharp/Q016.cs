@@ -13,15 +13,17 @@ namespace csharp
         public string Solve()
         {
             int num = 1000;
-            BigInteger num1 = 1;
+            BigInteger num1 = 1, res = 0;
+
             for (int i = 0; i < num; i++)
                 num1 *= 2;
-            BigInteger res = 0;
+
             while (num1 > 0)
             {
                 res += num1 % 10;
                 num1 /= 10;
             }
+
             return res.ToString();
         }
     }
