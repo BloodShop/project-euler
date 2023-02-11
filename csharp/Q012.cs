@@ -50,7 +50,7 @@ namespace csharp
             }
         }
 
-        int CountDivisors(int n)
+        static int CountDivisors(int n)
         {
             int count = 0, end = (int)Math.Sqrt(n);
             for (int i = 1; i < end; i++)
